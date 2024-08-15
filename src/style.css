@@ -59,6 +59,7 @@ main {
   font-size: 88px;
   font-weight: bold;
   margin-left: 10px;
+  margin-right: 0px;
 }
 .temperature-unit {
   margin-top: 16px;
