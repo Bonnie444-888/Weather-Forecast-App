@@ -14,7 +14,7 @@ function updateWeatherInfo(response) {
   decriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
-    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"
       class="weather-icon"
     />`;
   temperatureElement.innerHTML = Math.round(currentTemperature);
@@ -54,7 +54,29 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      ` <div class="weather-forecast-day">
+            <div class="day1-forecast">${day}</div>
+            <div class="day1-forecast-icon">🌤</div>
+            <div class="day1-forecast-temperatures">
+              <div class="day1-forecast-temperature"><strong>22º</strong></div>
+              <div class="day1-forecast-temperature">16º</div>
+            </div>
+          </div>`;
+  });
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Middelburg");
+displayForecast();
