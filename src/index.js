@@ -86,10 +86,11 @@ function displayForecast(response) {
         forecastHtml +
         ` <div class="weather-forecast-day">
             <div class="day1-forecast">${formatDay(day.time)}</div>
-            <div ><img class="day1-forecast-icon" src="${icon}"/></div>
-            <div class="day1-forecast-temperatures">
-              <div class="day1-forecast-temperature"><strong>${maxTemperature}º</strong></div>
-              <div class="day1-forecast-temperature">${miniTemperature}º</div>
+            <hr/>
+            <div ><img class="day-forecast-icon" src="${icon}"/></div>
+            <div class="day-forecast-temperatures">
+              <div class="day-forecast-temperature"><strong>${maxTemperature}º</strong></div>
+              <div class="day-forecast-temperature">${miniTemperature}º</div>
             </div>
           </div>`;
     }
