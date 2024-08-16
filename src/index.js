@@ -18,6 +18,8 @@ function updateWeatherInfo(response) {
       class="weather-icon"
     />`;
   temperatureElement.innerHTML = Math.round(currentTemperature);
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -54,7 +56,13 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "c7bafob10t4b2f7e01b7bfdba1fa34ec";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&unit=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
@@ -78,5 +86,4 @@ function displayForecast() {
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
-searchCity("Middelburg");
-displayForecast();
+searchCity("Witbank");
