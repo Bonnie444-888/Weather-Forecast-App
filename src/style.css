@@ -82,8 +82,10 @@ main {
   margin-bottom: 10px;
 }
 .day1-forecast-icon {
-  font-size: 38px;
-  text-align: center;
+  width: 88px;
+  height: 88px;
+  display: block;
+  margin: 0 auto;
 }
 .day1-forecast-temperatures {
   text-align: center;
